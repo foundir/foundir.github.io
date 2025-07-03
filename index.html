@@ -1,50 +1,487 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="UTF-8">
-		<title>FoundIR</title>
-<script language="Javascript">
-function OutWord()
-{
-var NewWords;
-NewWords = unescape(Words);
-document.write(NewWords);
-} 
-OutWord();
-</script>		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="shortcut icon" href="favicon.ico" type="images/x-icon">
-	</head>
-	<body>
-		<div class="centerBox">
-			<div class="header"></div>
-			<div class="center-list">
-				<div class="centerBody">
-					<img src="images/ds.png">
-					<p class="btn-p">
-						<a href="https://arxiv.org/abs/2412.01427" target="_blank" title="https://arxiv.org/abs/2412.01427">Paper</a>
-						<a href="https://github.com/House-Leo/FoundIR" target="_blank" title="https://github.com/House-Leo/FoundIR">Code</a>
+<html>
 
-					</p>
-					<p class="txt-w"><font style="color: #ffffff;font-size:12px;letter-spacing: 11px;font-weight: 100;padding-left:  20px;">data resources are coming soon</font></p>
-				</div>
-			</div>
-			<div class="footer">
-				<div class="center-footer">
-					<p class="banquan">© All Rights Reserved.</p> 
-				</div>
-			</div>
-		</div>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="FoundIR: Unleashing Million-scale Training Data to Advance Foundation Models for Image Restoration">
+  <meta name="keywords" content="Image Restoration, Million-scale Dataset, Foundation Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoundIR: Unleashing Million-scale Training Data to Advance Foundation Models for Image Restoration</title>
 
-		<div id = "logo" style="margin-top: 10px; text-align:center">
-			<div align="center" style="margin:auto;padding-top:10px">
-				<div style="width:12%">
-					<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=IZlWxpTjiQWkQ8fNIDcbCWYrI1FVHiYgpxLPaOZGUuA&cl=ffffff&w=a"></script>
-				</div>
-			   <br>
-				</div>
-		 </div>     
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-	<script src="js/simplex-noise.min.js"></script>
-	<script src="js/index.js"></script>
-<canvas style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" width="1480" height="1151"></canvas></body></html>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]  // 支持 $...$ 和 \( ... \)
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+  <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+</head>
+
+<body>
+
+  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span style="color: #228be6;font-weight: bolder;">FoundIR</span> : Unleashing Million-scale Training Data to Advance Foundation Models for Image Restoration</h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://house-leo.github.io/">Hao Li</a><sup></sup><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://cschenxiang.github.io/">Xiang Chen</a><sup></sup><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=ruebFVEAAAAJ&hl=zh-CN&oi=ao">Jiangxin Dong</a><sup></sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=ByBLlEwAAAAJ&hl=zh-CN">Jinhui Tang</a><sup></sup>,</span>
+              <span class="author-block">
+                <a href="https://jspan.github.io/">Jinshan Pan</a><sup></sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup></sup>Nanjing University of Science and Technology, China</span><br>
+              <span class="author-block"><sup>*</sup>denotes equal contribution</span>
+            </div>
+            <!-- TODO: update paper and video link once upload -->
+            <div class="column has-text-centered">
+              <!-- <div class="publication-links"> -->
+                <!-- PDF Link. -->
+                <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.01427"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+                </span>
+                <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.01427"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+              <a href="https://drive.google.com/file/d/1wOaquAjnuzCh6Jv3CJz76mgnx4nfZgBY/view?usp=sharing"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                      <i class="fas fa-database"></i>
+                </span>
+                <span>Dataset</span>
+              </a>
+              </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://youtu.be/470hul75bSM" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/House-Leo/FoundIR"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/fig1.png">
+
+            <p>
+              Despite the significant progress made by all-in-one models in universal image restoration, 
+              existing methods suffer from a generalization bottleneck in real-world scenarios, 
+              as they are mostly trained on small-scale synthetic datasets with limited degradations.
+              Therefore, large-scale high-quality real-world training data is urgently needed to facilitate the emergence of foundation models for image restoration.
+            </p>
+
+            <p>
+              To advance this field, we spare no effort in contributing a million-scale dataset with two notable advantages over existing training data: 
+              larger-scale real-world samples, and higher-diversity data types.
+              By adjusting internal camera settings and external imaging conditions, 
+              we can capture aligned image pairs using our well-designed data acquisition system over multiple rounds and our data alignment criterion.
+            </p>
+            
+            <p>
+              Moreover, we propose a robust model, FoundIR, to better address a broader range of restoration tasks in real-world scenarios,
+              taking a further step toward foundation models.
+              Specifically, we first utilize a diffusion-based generalist model to remove degradations by learning the degradation-agnostic common representations from diverse inputs,
+              where incremental learning strategy is adopted to better guide model training.
+              To refine the model's restoration capability in complex scenarios,
+              we introduce degradation-aware specialist models for achieving final high-quality results.
+              Extensive experiments show the value of our dataset and the effectiveness of our method.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/method.png">
+
+            <p>
+              Illustration of the proposed FoundIR. We first employ a diffusion-based generalist model $\mathcal{G}$ for degradation removal, 
+              followed by multiple specialist models $\mathcal{S}$ for quality refinement. 
+              We guide the generalist model to learn a degradation-agnostic common representation space from various degraded inputs, 
+              where incremental learning is introduced to improve the model's training stability. 
+              For the specialist models, we construct an expert pool to handle various scenarios, 
+              comprising text repair experts, weather experts, and illumination experts.
+            </p>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Dataset</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/dataset.png">
+
+            <p>
+              Example LQ-GT paired images in the proposed million-scale dataset. Compared to existing training data, the proposed dataset
+              offer twofold advantages: (i) real-world scenarios with larger-scale, and (ii) degradation types with higher-diversity.
+            </p>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Result</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/qualitative_results.png">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section">
+    <div class="container ">
+      <div class=" has-text-centered">
+        <h2 class="title is-3">Visual Comparisons</h2>
+        <div class="content has-text-justified">
+          <p>
+
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <div class="columns is-centered">
+                <div class="column is-full-width">
+                  <div id="example1" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/Blur_Ours.png">
+                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                        Ours
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width:50.4968152866242%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/Blur_LQ.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          Input
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left:50.4968152866242%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+
+
+                  <div id="example2" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/NightRain_Ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/NightRain_LQ.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          Input
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--/ Visual Effects. -->
+
+          <!-- Matting. -->
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content">
+
+                <div id="example4" class="bal-container-small">
+                  <div class="bal-after">
+                    <img src="./static/images/Haze_Ours.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours
+                    </div>
+                  </div>
+
+                  <div class="bal-before" style="width:62.10191082802548%;">
+                    <div class="bal-before-inset" style="width: 539px;">
+                      <img src="./static/images/Haze_LQ.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        Input
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle" style="left:62.10191082802548%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+
+                </div>
+
+                <div id="example5" class="bal-container-small">
+                  <div class="bal-after">
+                    <img src="./static/images/LowNoise_Ours.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours
+                    </div>
+                  </div>
+
+                  <div class="bal-before" style="width:56.77179962894249%;">
+                    <div class="bal-before-inset" style="width: 628px;">
+                      <img src="./static/images/LowNoise_LQ.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        Input
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle" style="left:56.77179962894249%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    new BeforeAfter({
+      id: '#example1'
+    });
+    new BeforeAfter({
+      id: '#example2'
+    });
+    new BeforeAfter({
+      id: '#example4'
+    });
+    new BeforeAfter({
+      id: '#example5'
+    });
+
+  </script>
+
+  
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{li2024foundir,
+      title={FoundIR: Unleashing Million-scale Training Data to Advance Foundation Models for Image Restoration},
+      author={Li, Hao and Chen, Xiang and Dong, Jiangxin and Tang, Jinhui and Pan, Jinshan},
+      booktitle={ICCV},
+      year={2025}
+}</code></pre>
+  </div>
+</section>
+
+  <!-- TODO: update the arxiv link and github -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/pdf/2407.14900.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://aglldiff.github.io/" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              We thank the authors of <a href="https://nerfies.github.io/">Nerfies</a> that kindly open sourced the template of this website.
+              <!-- This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>. -->
+            </p>
+            <p>
+              <!-- This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
